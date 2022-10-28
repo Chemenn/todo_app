@@ -65,7 +65,6 @@ class LogInHttp{
         },
         body: jsonEncode(<String, String>{
           "username":username,
-
           "password":password,
         }));
     debugPrint(response.body);
@@ -84,7 +83,7 @@ class LogInHttp{
     } 
     else if(response.statusCode==404){
       return ScaffoldMessenger.maybeOf(context)!.showSnackBar(SnackBar(
-            content: Text('Something wrong 409'),
+            content: Text('Something wrong '),
                       ));
     }
     else {

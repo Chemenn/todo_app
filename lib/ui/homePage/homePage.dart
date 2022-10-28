@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pro/ui/homePage/MyFloatingButton.dart';
 import 'package:pro/ui/homePage/TextStyle.dart';
-import 'package:pro/ui/homePage/createGroup.dart';
+import 'package:pro/ui/group/createGroup.dart';
 import 'package:pro/ui/homePage/search.dart';
 import '../../color/colors.dart' as appColors;
 
