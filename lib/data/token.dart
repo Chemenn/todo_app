@@ -24,7 +24,9 @@ class Tooken{
     }
   }
   Future<File> tokenDosyaYaz(String yaz) async {
+     debugPrint(yaz);
     var myDosya = await tokenDosyaOlustur;
+   
     return myDosya.writeAsString(yaz);
 
   }

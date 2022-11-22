@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pro/ui/home/homePage.dart';
 import '../../color/colors.dart' as appColors;
 
-showAlertDialog(BuildContext context) {
+showAlertDialogTask(BuildContext context) {
   double maxlines = 2;
-  TextEditingController _groupName=TextEditingController();
+  TextEditingController _taskName=TextEditingController();
+  TextEditingController _discription=TextEditingController();
+  TextEditingController _priority=TextEditingController();
+  
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
@@ -31,10 +34,54 @@ showAlertDialog(BuildContext context) {
           width: MediaQuery.of(context).size.width * 0.9,
           height: 25 * maxlines,
           child: TextField(
-            controller: _groupName,
+            controller: _taskName,
             textInputAction: TextInputAction.done,
             decoration: InputDecoration(
-              hintText: "Group Names",
+              hintText: "Task Title",
+              hintStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              filled: true,
+              fillColor: appColors.groupTextField,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 30),
+         Container(
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: 25 * maxlines,
+          child: TextField(
+            controller: _discription,
+            textInputAction: TextInputAction.done,
+            decoration: InputDecoration(
+              hintText: "Discription",
+              hintStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              filled: true,
+              fillColor: appColors.groupTextField,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+                borderSide: BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 30),
+         Container(
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: 25 * maxlines,
+          child: TextField(
+            controller: _priority,
+            textInputAction: TextInputAction.done,
+            decoration: InputDecoration(
+              hintText: "Priority",
               hintStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
               filled: true,
               fillColor: appColors.groupTextField,
@@ -56,10 +103,10 @@ showAlertDialog(BuildContext context) {
           child: ElevatedButton(
               onPressed: () {
                 //PostList().createGroup(_groupName.text, context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => (HomePage())));
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => (HomePage())));
               },
               child: Text(
-                "Create group",
+                "Add Task",
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
               )),
         ),

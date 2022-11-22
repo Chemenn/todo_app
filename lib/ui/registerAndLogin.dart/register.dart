@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pro/ui/homePage/homePage.dart';
 import 'package:pro/ui/registerAndLogin.dart/Login.dart';
 import 'package:pro/ui/registerAndLogin.dart/button.dart';
 import 'package:pro/ui/registerAndLogin.dart/textField.dart';
@@ -66,10 +65,14 @@ GlobalKey<FormState> _keyGlo=GlobalKey<FormState>();
                 GestureDetector(
                   onTap: ()async{
                       if(_keyGlo.currentState!.validate()) {
-                        PostLogIn().createUser(_emailController.text, _passwordController.text,_usernameController.text, context);
+                        PostLogIn().createUser(_usernameController.text,_emailController.text, _passwordController.text, context);
                         print(_emailController.text);
+                        print(_usernameController.text);
+                        print(_passwordController.text);
+                        
                       }
-                  },
+                       
+                    } , 
                   child: Button(text: "Register",)),
                  Stack(children: 
                  [

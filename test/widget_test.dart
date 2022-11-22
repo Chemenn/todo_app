@@ -10,8 +10,6 @@ import 'package:flutter_test/flutter_test.dart';
 
 // ignore: unused_import
 import 'package:pro/main.dart';
-import 'package:pro/ui/registerAndLogin.dart/Login.dart';
-import 'package:pro/ui/registerAndLogin.dart/Merjen.dart';
 import 'package:pro/ui/registerAndLogin.dart/register.dart';
 
 void main() {

@@ -2,8 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import '../data/token.dart';
-import 'package:pro/ui/homePage/homePage.dart';
-
+import 'package:pro/ui/home/homePage.dart';
 
 import 'package:http/http.dart' as http;
 import '../data/LoginData.dart';
@@ -22,8 +21,8 @@ class PostLogIn{
           "Content-Type": "application/json",
         },
         body: jsonEncode(<String, String>{
-          "username":username,
           "email":email,
+          "username":username,
           "password":password,
         }));
     debugPrint(response.body);
@@ -54,6 +53,7 @@ class PostLogIn{
 class LogInHttp{
 
   Future createUser(
+    
       String username,String password,BuildContext context) async {
 
     var response = await http.post(
@@ -83,7 +83,7 @@ class LogInHttp{
     } 
     else if(response.statusCode==404){
       return ScaffoldMessenger.maybeOf(context)!.showSnackBar(SnackBar(
-            content: Text('Something wrong '),
+            content: Text(response.body),
                       ));
     }
     else {

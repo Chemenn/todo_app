@@ -3,10 +3,7 @@ import 'package:pro/data/postLogin.dart';
 import 'package:pro/ui/registerAndLogin.dart/button.dart';
 import 'package:pro/ui/registerAndLogin.dart/register.dart';
 import 'package:pro/ui/registerAndLogin.dart/textField.dart';
-import 'package:http/http.dart' as http;
 import '../../color/colors.dart' as appColors;
-import '../homePage/homePage.dart';
-
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -18,7 +15,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool check = false;
   
-  TextEditingController _emailController=TextEditingController();
+  TextEditingController _usernameController=TextEditingController();
   TextEditingController _passwordController=TextEditingController();
   
   GlobalKey<FormState> _keyGlo=GlobalKey<FormState>();
@@ -48,8 +45,9 @@ class _LoginState extends State<Login> {
                 Form(
                   key: _keyGlo,
                   child: InputField(
-                    controller: _emailController,
-                     isEmail: true,
+                    controller: _usernameController,
+                     isEmail: false,
+                     isUsername: true,
                   ),
                 ),
                 InputField(
@@ -62,15 +60,16 @@ class _LoginState extends State<Login> {
                 GestureDetector(
                   onTap: ()async{
                     if(_keyGlo.currentState!.validate()) {
-                      setState(() {
-                        LogInHttp().createUser(_emailController.text, _passwordController.text, context);
-                      });
-                        print(_emailController.text);
+                    
+                        print(_usernameController.text);
                         print(_passwordController.text);
-                      }
+                        LogInHttp().createUser(_usernameController.text, _passwordController.text, context);
+                      
+                      
+                    //   }
                     //   var user = await APICallerServer().registerOrLogin(
-                    //     email: _emailController.text,
-                    //     password: _passwordController.text);
+                    //     password: _passwordController.text, 
+                    //     username: _usernameController.text, email: '');
                     //   if (user==null) {
                     //   ScaffoldMessenger.maybeOf(context)!.showSnackBar(SnackBar(
                     //     content: Text('ERRRRRRRO'),
@@ -80,7 +79,7 @@ class _LoginState extends State<Login> {
                     //   ScaffoldMessenger.maybeOf(context)!.showSnackBar(SnackBar(
                     //     content: Text('URRRRRAAAAAAA'),
                     //   ));
-                    // }  
+                    }  
                   },
                   child: Button(text: "Login",)),
                 SizedBox(height: 10,),

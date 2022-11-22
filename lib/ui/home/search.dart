@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import '../../color/colors.dart' as appColors;
 
 search(BuildContext context) {
-  int max = 5;
+  //int max = 5;
   return Container(
-    height: max * 15,
-    padding: EdgeInsets.only(top: 20, bottom: 5, left: 17, right: 17),
+    height: 55,
+    padding: EdgeInsets.only(top: 12, left: 17, right: 17),
     child: TextField(
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color.fromRGBO(246, 246, 246, 1),
+        fillColor:appColors.textFieldColor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(
@@ -18,10 +18,10 @@ search(BuildContext context) {
           ),
         ),
         prefixIcon: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 29),
+          padding: const EdgeInsets.symmetric(horizontal: 17),
           child: Icon(
             Icons.search,
-            size: 35,
+            size: 30,
           ),
         ),
         hintText: "Search",
